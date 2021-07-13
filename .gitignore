@@ -5,10 +5,8 @@ package-lock.json
 .env
 
 # Hardhat
-artifacts
-cache
+artifacts/
+cache/
 
 # OpenZeppelin
-.openzeppelin/dev-*.json
-.openzeppelin/.session
-.openzeppelin/unknown-*.json
+.openzeppelin/

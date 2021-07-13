@@ -1,11 +1,11 @@
 const { assert, web3 } = require("hardhat");
-const Contract = artifacts.require("Contract");
+const ContractV2 = artifacts.require("ContractV2");
 
-contract("Contract", ([owner, ...accounts]) => {
+contract("ContractV2", ([owner, ...accounts]) => {
   let contract;
 
   beforeEach(async () => {
-    contract = await Contract.new();
+    contract = await ContractV2.new();
     await contract.initialize();
   });
 
@@ -15,5 +15,10 @@ contract("Contract", ([owner, ...accounts]) => {
 
   it("initializes a contract", async () => {
     assert.equal("Test contract upgradeables", await contract.name());
+  });
+
+  it("sets a contract name", async () => {
+      await contract.setName("New name");
+    assert.equal("New name", await contract.name());
   });
 });

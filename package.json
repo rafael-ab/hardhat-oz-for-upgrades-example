@@ -1,21 +1,25 @@
 {
-  "name": "hardhat-contract-boilerplate",
+  "name": "hardhat-oz-for-upgrades-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "hardhat test",
-    "compile": "hardhat compile",
-    "deploy": "hardhat run scripts/deploy.js",
     "prettier": "prettier --write contracts/**/*.sol",
     "lint": "prettier --list-different contracts/**/*.sol",
-    "clean": "hardhat clean"
+    "clean": "hardhat clean",
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy:rinkeby": "hardhat run scripts/1_initial_deploy.js --network rinkeby",
+    "prepare-upgrade:rinkeby": "hardhat run scripts/2_prepare_upgrade.js --network rinkeby",
+    "deploy-upgrade:rinkeby": "hardhat run scripts/3_deploy_upgrade.js --network rinkeby",
+    "verify-contract:rinkeby": "hardhat --network rinkeby verify-contract"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.4",
     "@nomiclabs/hardhat-truffle5": "^2.0.0",
     "@nomiclabs/hardhat-web3": "^2.0.0",
     "@openzeppelin/contracts": "^3.3.0",
